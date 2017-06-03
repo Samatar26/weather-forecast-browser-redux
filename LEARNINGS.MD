@@ -37,3 +37,23 @@ The payload is initially just a promise, but turns into the response object/data
 Remember that Redux Promise is a piece of middleware. They have the ability to stop or manipulate any action before it hits the reducer. So Redux Promise sees the incoming action, _**the payload property specifically*__. If the payload is a promise, it stops the action entirely and once the request is finished/the promise is resolved it will create a new action and send it to the reducer. Redux-Promise FTW!
 
 In Redux, just like React you never want to mutate state as it will open up a whole can of worms and a very sublte trap in redux. You should always return a new instance of state, rather than mutating it.
+
+### React Sparklines
+
+React Sparklines is super easy to use, all you have to provide it is the height, width, color and data in the form of an array of numbers and it will generate a line chart for you.
+
+```js
+import React from 'react';
+import { Sparklines, SparklinesLine } from 'react-sparklines';
+
+export default props => {
+  return (
+    <div>
+      <Sparklines height={120} width={180} data={props.data}>
+        <SparklinesLine color={props.color} />
+      </Sparklines>
+    </div>
+  );
+};
+
+```
