@@ -17,6 +17,8 @@ class SearchBar extends Component {
   onFormSubmit = ev => {
     ev.preventDefault();
     //Fetch weather data
+    this.props.fetchWeather(this.state.term);
+    this.setState({ term: '' });
   };
 
   render() {
@@ -36,4 +38,8 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchWeather }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(SearchBar);
