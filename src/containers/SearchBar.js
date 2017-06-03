@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchWeather } from './../actions/index';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -12,9 +14,14 @@ class SearchBar extends Component {
     this.setState({ term: ev.target.value });
   };
 
+  onFormSubmit = ev => {
+    ev.preventDefault();
+    //Fetch weather data
+  };
+
   render() {
     return (
-      <form className="input-group">
+      <form onSubmit={this.onFormSubmit} className="input-group">
         <input
           placeholder="Get a five-day forecast in your favourite cities"
           className="form-control"
