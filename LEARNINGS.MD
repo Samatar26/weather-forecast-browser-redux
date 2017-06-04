@@ -57,3 +57,30 @@ export default props => {
 };
 
 ```
+### Ref in React
+The ref system allows us to give a direct reference to a HTML element that has been rendered to the page. So anywhere inside our component we can use `this.map` to target the HTML element. The ref is created using a callback approach where you store a reference to the div DOM element in an instance field, which in our example is `this.map`
+
+```js
+import React, { Component } from 'react';
+
+class GoogleMap extends Component {
+  componentDidMount() {
+    console.log(this);
+    new google.maps.Map(this.map, {
+      zoom: 12,
+      center: {
+        lat: this.props.lat,
+        lng: this.props.lon,
+      },
+    });
+  }
+
+  render() {
+    //this.refs.map
+    return <div ref={googleMap => (this.map = googleMap)} />;
+  }
+}
+
+export default GoogleMap;
+
+```

@@ -22,4 +22,21 @@
 
 .tableData{
   width: 25%;
+  height: 200px;
+  padding: 1em;
+}
+
+
+.input-group{
+  margin: 20px 0px;
+}
+
+.units{
+  text-align: center;
+}
+
+#maps{
+  height: 100%;
+  flex-grow: 7;
+  width: 100%;
 }
