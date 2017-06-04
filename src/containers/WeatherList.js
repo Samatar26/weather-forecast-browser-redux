@@ -5,25 +5,37 @@ import uuid from 'uuid/v4';
 
 class WeatherList extends Component {
   renderWeather = cityData => {
+    const name = cityData.city.name;
     const temps = cityData.list.map(weather => weather.main.temp);
     const pressure = cityData.list.map(weather => weather.main.pressure);
     const humidity = cityData.list.map(weather => weather.main.humidity);
-    console.log(cityData.list);
+
     return (
-      <tr key={uuid()}>
-        <td>{cityData.city.name}</td>
-        <td><Chart data={temps} color="red" /></td>
-        <td><Chart data={pressure} color="green" /></td>
-        <td><Chart data={humidity} color="blue" /></td>
+      <tr className="tableBody" key={uuid()}>
+
+        <td className="tableData">{name}</td>
+
+        <td className="tableData">
+          <Chart data={temps} color="red" />
+        </td>
+
+        <td className="tableData">
+          <Chart data={pressure} color="green" />
+        </td>
+
+        <td className="tableData">
+          <Chart data={humidity} color="blue" />
+        </td>
+
       </tr>
     );
   };
 
   render() {
     return (
-      <table className="table table-hover">
+      <table className="myTable">
         <thead>
-          <tr>
+          <tr className="tableHead">
             <th>City</th>
             <th>Temperature</th>
             <th>Pressure</th>

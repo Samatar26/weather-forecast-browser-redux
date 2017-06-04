@@ -1,0 +1,25 @@
+.myTable{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.tableHead{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.tableBody{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+.tableBody:hover{
+  background-color: rgba(181, 181, 181, 0.2);
+}
+
+.tableData{
+  width: 25%;
+}
